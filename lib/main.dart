@@ -29,20 +29,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pokedexRepository = PokedexRepositoryImpl();
-
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider<PokemonCubit>(
-          create: (context) => PokemonCubit(pokedexRepository),
+        RepositoryProvider<PokedexRepositoryImpl>(
+          create: (context) => PokedexRepositoryImpl(),
         ),
       ],
-      child: MaterialApp.router(
-        title: 'Bienestar Animal',
-        theme: AppTheme().mainTheme,
-        debugShowCheckedModeBanner: false,
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<PokemonCubit>(
+            create: (context) => PokemonCubit(
+              context.read<PokedexRepositoryImpl>(),
+            ),
+          ),
+        ],
+        child: MaterialApp.router(
+          title: 'Bienestar Animal',
+          theme: AppTheme().mainTheme,
+          debugShowCheckedModeBanner: false,
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+        ),
       ),
     );
   }

@@ -13,22 +13,22 @@ extension PokemonStatusX on PokemonStatus {
 class PokemonState extends Equatable {
   PokemonState({
     this.status = PokemonStatus.initial,
-    List<String>? pokemonNames,
-  }) : pokemonNames = pokemonNames ?? List<String>.empty();
+    List<Pokemon>? pokemons,
+  }) : pokemons = pokemons ?? [];
 
   final PokemonStatus status;
-  final List<String> pokemonNames;
+  final List<Pokemon> pokemons;
 
   PokemonState copyWith({
     PokemonStatus? status,
-    List<String>? pokemonNames,
+    List<Pokemon>? pokemons,
   }) {
     return PokemonState(
       status: status ?? this.status,
-      pokemonNames: pokemonNames ?? this.pokemonNames,
+      pokemons: pokemons ?? this.pokemons,
     );
   }
 
   @override
-  List<Object> get props => [status, pokemonNames];
+  List<Object> get props => [status, pokemons];
 }

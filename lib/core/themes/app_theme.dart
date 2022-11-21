@@ -3,15 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   get mainTheme => ThemeData(
-        brightness: Brightness.light,
-        scaffoldBackgroundColor: Colors.white,
+        brightness: Brightness.dark,
         primaryColor: Colors.purple,
-        canvasColor: Colors.transparent,
-        accentColor: Colors.purple,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 26, 31, 61),
+        cardColor: Color.fromARGB(255, 13, 13, 13),
 
         // Text
         textTheme: GoogleFonts.poppinsTextTheme().apply(
-          bodyColor: Colors.black,
+          bodyColor: Colors.white,
         ),
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -19,8 +18,8 @@ class AppTheme {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          foregroundColor: Colors.black,
+          // shadowColor: Colors.transparent,
+          // foregroundColor: Colors.black,
           elevation: 0,
           centerTitle: true,
         ),
