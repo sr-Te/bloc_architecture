@@ -1,8 +1,7 @@
-import 'package:bloc_architecture/features/pokedex/cubit/pokemon_details_cubit/pokemon_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../cubit/pokemon_cubit/pokemon_cubit.dart';
+import '../../cubit/pokemon_cubit/pokemon_cubit.dart';
 import '../widgets/pokedex_widgets.dart';
 
 class PokedexPage extends StatelessWidget {

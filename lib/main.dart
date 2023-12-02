@@ -5,10 +5,10 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'bloc_observer.dart';
-import 'core/routes/router.gr.dart';
+import 'core/injections/bloc_injection.dart';
+import 'core/injections/repository_injection.dart';
+import 'core/routes/router.dart';
 import 'core/themes/app_theme.dart';
-import 'data/repository/pokedex_repository.dart';
-import 'features/pokedex/cubit/pokemon_cubit/pokemon_cubit.dart';
 
 // https://github.com/cscoderr/Pokedex
 void main() async {
@@ -22,33 +22,20 @@ void main() async {
   runApp(const MyApp());
 }
 
-final _appRouter = AppRouter();
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider<PokedexRepositoryImpl>(
-          create: (context) => PokedexRepositoryImpl(),
-        ),
-      ],
+      providers: RepositoryInjection.providers,
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider<PokemonCubit>(
-            create: (context) => PokemonCubit(
-              context.read<PokedexRepositoryImpl>(),
-            ),
-          ),
-        ],
+        providers: BlocInjection.providers,
         child: MaterialApp.router(
-          title: 'Bienestar Animal',
+          title: 'Pokedex',
           theme: AppTheme().mainTheme,
           debugShowCheckedModeBanner: false,
-          routerDelegate: _appRouter.delegate(),
-          routeInformationParser: _appRouter.defaultRouteParser(),
+          routerConfig: AppRouter.router,
         ),
       ),
     );

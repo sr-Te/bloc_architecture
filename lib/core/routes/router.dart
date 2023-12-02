@@ -1,12 +1,18 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../features/pokedex/view/pokedex_page.dart';
+import '../../features/pokedex/view/pages/pokedex_page.dart';
 
-// flutter pub run build_runner watch --delete-conflicting-outputs
-@MaterialAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
-    AutoRoute(page: PokedexPage, initial: true),
-  ],
-)
-class $AppRouter {}
+class AppRouter {
+  static final GoRouter router = GoRouter(
+    routes: <RouteBase>[
+      GoRoute(
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) {
+          return const PokedexPage();
+        },
+        // routes: <RouteBase>[],
+      ),
+    ],
+  );
+}

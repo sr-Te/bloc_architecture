@@ -2,8 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../data/models/models.dart';
-import '../../../../data/repository/pokedex_repository.dart';
+import '../../data/models/models.dart';
+import '../../data/repository/pokedex_repository.dart';
 
 part 'pokemon_state.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/models/models.dart';
-import '../cubit/pokemon_cubit/pokemon_cubit.dart';
+import '../../data/models/models.dart';
+import '../../cubit/pokemon_cubit/pokemon_cubit.dart';
 import 'pokemon_card.dart';
 
 class PokedexPopulated extends StatefulWidget {

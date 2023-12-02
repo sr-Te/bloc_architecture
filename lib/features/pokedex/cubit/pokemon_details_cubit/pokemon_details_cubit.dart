@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../data/models/models.dart';
-import '../../../../data/repository/pokedex_repository.dart';
+import '../../data/models/models.dart';
+import '../../data/repository/pokedex_repository.dart';
 
 part 'pokemon_details_state.dart';
 
