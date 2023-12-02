@@ -27,7 +27,7 @@ class _PokedexPopulatedState extends State<PokedexPopulated>
 
   @override
   void dispose() {
-    _scrollController.dispose(); // dispose the controller
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -63,7 +63,7 @@ class _PokedexPopulatedState extends State<PokedexPopulated>
 
   void _scrollToTop() {
     _scrollController.animateTo(0,
-        duration: const Duration(seconds: 2), curve: Curves.linear);
+        duration: const Duration(seconds: 1), curve: Curves.linear);
   }
 
   void _initVariables() {

@@ -2,11 +2,11 @@ part of 'pokemon_cubit.dart';
 
 enum PokemonStatus { initial, loading, success, failure }
 
-extension PokemonStatusX on PokemonStatus {
-  bool get isInitial => this == PokemonStatus.initial;
-  bool get isLoading => this == PokemonStatus.loading;
-  bool get isSuccess => this == PokemonStatus.success;
-  bool get isFailure => this == PokemonStatus.failure;
+extension PokemonStatesX on PokemonState {
+  bool get isInitial => status == PokemonStatus.initial;
+  bool get isLoading => status == PokemonStatus.loading;
+  bool get isSuccess => status == PokemonStatus.success;
+  bool get isFailure => status == PokemonStatus.failure;
 }
 
 @JsonSerializable()

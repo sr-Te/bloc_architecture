@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubit/pokemon_cubit/pokemon_cubit.dart';
-import '../widgets/pokedex_widgets.dart';
+import '../widgets/pokedex_populated.dart';
 
 class PokedexPage extends StatelessWidget {
   const PokedexPage({super.key});
@@ -13,17 +13,26 @@ class PokedexPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Pokedex'),
       ),
-      body: BlocBuilder<PokemonCubit, PokemonState>(
-        builder: (context, state) {
-          if (state.status == PokemonStatus.failure) {
-            return const PokedexError();
+      body: BlocConsumer<PokemonCubit, PokemonState>(
+        listener: (context, state) {
+          if (state.isFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              duration: Duration(seconds: 3),
+              content: Text('🙈 Something went wrong!'),
+            ));
           }
-
+        },
+        builder: (context, state) {
           return Column(
             children: [
-              state.status == PokemonStatus.loading
+              // If data is currently loading, the interface displays the data
+              // previosly obtained with a linear progress indicator.
+              // Otherwise, it shows the loaded data and a container to fills
+              // the space previously occupied by the loading indicator.
+              state.isLoading
                   ? const LinearProgressIndicator()
                   : Container(height: 3),
+
               Expanded(child: PokedexPopulated(state.pokemons)),
             ],
           );
