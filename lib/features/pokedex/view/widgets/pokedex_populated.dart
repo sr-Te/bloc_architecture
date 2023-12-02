@@ -7,21 +7,29 @@ import 'pokemon_card.dart';
 
 class PokedexPopulated extends StatefulWidget {
   final List<Pokemon> pokemons;
-
   const PokedexPopulated(this.pokemons, {super.key});
-
   @override
   State<PokedexPopulated> createState() => _PokedexPopulatedState();
 }
 
 class _PokedexPopulatedState extends State<PokedexPopulated>
     with TickerProviderStateMixin {
-  bool _showBackToTopButton = false;
+  late bool _showBackToTopButton;
   late ScrollController _scrollController;
 
   @override
   void initState() {
-    _initVariables();
+    _showBackToTopButton = false;
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= 400) {
+            _showBackToTopButton = true; // show the back-to-top button
+          } else {
+            _showBackToTopButton = false; // hide the back-to-top button
+          }
+        });
+      });
     super.initState();
   }
 
@@ -31,15 +39,25 @@ class _PokedexPopulatedState extends State<PokedexPopulated>
     super.dispose();
   }
 
+  void _scrollToTop() {
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(seconds: 1),
+      curve: Curves.linear,
+    );
+  }
+
+  bool onScrollNotification(ScrollNotification notification) {
+    if (notification is ScrollEndNotification) {
+      BlocProvider.of<PokemonCubit>(context).fetchPokemons();
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
-      onNotification: (notification) {
-        if (notification is ScrollEndNotification) {
-          BlocProvider.of<PokemonCubit>(context).fetchPokemons();
-        }
-        return true;
-      },
+      onNotification: onScrollNotification,
       child: Scaffold(
         body: GridView.builder(
           controller: _scrollController,
@@ -59,23 +77,5 @@ class _PokedexPopulatedState extends State<PokedexPopulated>
               ),
       ),
     );
-  }
-
-  void _scrollToTop() {
-    _scrollController.animateTo(0,
-        duration: const Duration(seconds: 1), curve: Curves.linear);
-  }
-
-  void _initVariables() {
-    _scrollController = ScrollController()
-      ..addListener(() {
-        setState(() {
-          if (_scrollController.offset >= 400) {
-            _showBackToTopButton = true; // show the back-to-top button
-          } else {
-            _showBackToTopButton = false; // hide the back-to-top button
-          }
-        });
-      });
   }
 }

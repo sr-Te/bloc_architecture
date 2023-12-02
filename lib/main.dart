@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,7 @@ import 'bloc_observer.dart';
 import 'core/injections/bloc_injection.dart';
 import 'core/injections/repository_injection.dart';
 import 'core/routes/router.dart';
-import 'core/themes/app_theme.dart';
+import 'core/themes/cubit/theme_cubit.dart';
 
 // https://github.com/cscoderr/Pokedex
 void main() async {
@@ -31,11 +32,17 @@ class MyApp extends StatelessWidget {
       providers: RepositoryInjection.providers,
       child: MultiBlocProvider(
         providers: BlocInjection.providers,
-        child: MaterialApp.router(
-          title: 'Pokedex',
-          theme: AppTheme().mainTheme,
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
+        child: BlocBuilder<ThemeCubit, ThemeMode>(
+          builder: (context, themeMode) {
+            return MaterialApp.router(
+              title: 'Pokedex',
+              theme: FlexThemeData.light(scheme: FlexScheme.deepPurple),
+              darkTheme: FlexThemeData.dark(scheme: FlexScheme.deepPurple),
+              themeMode: themeMode,
+              debugShowCheckedModeBanner: false,
+              routerConfig: AppRouter.router,
+            );
+          },
         ),
       ),
     );

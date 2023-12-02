@@ -1,98 +1,98 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
-class AppTheme {
-  get mainTheme => ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.purple,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 26, 31, 61),
-        cardColor: Color.fromARGB(255, 13, 13, 13),
+// class AppTheme {
+//   get mainTheme => ThemeData(
+//         brightness: Brightness.dark,
+//         primaryColor: Colors.purple,
+//         scaffoldBackgroundColor: const Color.fromARGB(255, 26, 31, 61),
+//         cardColor: Color.fromARGB(255, 13, 13, 13),
 
-        // Text
-        textTheme: GoogleFonts.poppinsTextTheme().apply(
-          bodyColor: Colors.white,
-        ),
+//         // Text
+//         textTheme: GoogleFonts.poppinsTextTheme().apply(
+//           bodyColor: Colors.white,
+//         ),
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //!         APPBAR
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
-          // shadowColor: Colors.transparent,
-          // foregroundColor: Colors.black,
-          elevation: 0,
-          centerTitle: true,
-        ),
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         //!         APPBAR
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         appBarTheme: const AppBarTheme(
+//           backgroundColor: Colors.transparent,
+//           // shadowColor: Colors.transparent,
+//           // foregroundColor: Colors.black,
+//           elevation: 0,
+//           centerTitle: true,
+//         ),
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //!         TABBAR
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        tabBarTheme: TabBarTheme(
-          labelColor: Colors.black,
-          overlayColor: MaterialStateProperty.all<Color?>(Colors.purple[50]),
-          indicator: const UnderlineTabIndicator(
-            borderSide: BorderSide(color: Colors.purple),
-          ),
-        ),
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         //!         TABBAR
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         tabBarTheme: TabBarTheme(
+//           labelColor: Colors.black,
+//           overlayColor: MaterialStateProperty.all<Color?>(Colors.purple[50]),
+//           indicator: const UnderlineTabIndicator(
+//             borderSide: BorderSide(color: Colors.purple),
+//           ),
+//         ),
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //!         BUTTONS
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            primary: Colors.purple,
-            // backgroundColor: Colors.black,
-            side: const BorderSide(color: Colors.purple),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(200),
-            ),
-            textStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            primary: Colors.purple,
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(100),
-            ),
-            textStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
-            ),
-          ),
-        ),
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         //!         BUTTONS
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         outlinedButtonTheme: OutlinedButtonThemeData(
+//           style: OutlinedButton.styleFrom(
+//             primary: Colors.purple,
+//             // backgroundColor: Colors.black,
+//             side: const BorderSide(color: Colors.purple),
+//             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+//             shape: RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(200),
+//             ),
+//             textStyle: const TextStyle(
+//               fontSize: 16,
+//               fontWeight: FontWeight.w500,
+//             ),
+//           ),
+//         ),
+//         elevatedButtonTheme: ElevatedButtonThemeData(
+//           style: ElevatedButton.styleFrom(
+//             primary: Colors.purple,
+//             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+//             shape: RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(100),
+//             ),
+//             textStyle: const TextStyle(
+//               fontSize: 16,
+//               fontWeight: FontWeight.w500,
+//               color: Colors.white,
+//             ),
+//           ),
+//         ),
 
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            primary: Colors.purple,
-            textStyle: const TextStyle(fontSize: 16),
-          ),
-        ),
+//         textButtonTheme: TextButtonThemeData(
+//           style: TextButton.styleFrom(
+//             primary: Colors.purple,
+//             textStyle: const TextStyle(fontSize: 16),
+//           ),
+//         ),
 
-        checkboxTheme: CheckboxThemeData(
-          fillColor: MaterialStateProperty.all(Colors.purple),
-        ),
+//         checkboxTheme: CheckboxThemeData(
+//           fillColor: MaterialStateProperty.all(Colors.purple),
+//         ),
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //!         TextField
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        inputDecorationTheme: const InputDecorationTheme(
-          floatingLabelStyle: TextStyle(color: Colors.purple, fontSize: 18),
-          filled: true,
-          fillColor: Colors.transparent,
-          focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              style: BorderStyle.solid,
-              color: Colors.purple,
-              width: 3,
-            ),
-          ),
-        ),
-      );
-}
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         //!         TextField
+//         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//         inputDecorationTheme: const InputDecorationTheme(
+//           floatingLabelStyle: TextStyle(color: Colors.purple, fontSize: 18),
+//           filled: true,
+//           fillColor: Colors.transparent,
+//           focusedBorder: UnderlineInputBorder(
+//             borderSide: BorderSide(
+//               style: BorderStyle.solid,
+//               color: Colors.purple,
+//               width: 3,
+//             ),
+//           ),
+//         ),
+//       );
+// }

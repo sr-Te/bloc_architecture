@@ -1,3 +1,4 @@
+import 'package:bloc_architecture/core/themes/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,9 +10,20 @@ class PokedexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    final bool isLight = theme.brightness == Brightness.light;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pokedex'),
+        actions: [
+          IconButton(
+            onPressed: () => context.read<ThemeCubit>().toggleTheme(),
+            icon: Icon(
+              isLight ? Icons.dark_mode_sharp : Icons.light_mode_sharp,
+            ),
+          ),
+        ],
       ),
       body: BlocConsumer<PokemonCubit, PokemonState>(
         listener: (context, state) {
